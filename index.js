@@ -3,7 +3,8 @@ const bodyParser = require("body-parser");
 const server = express();
 
 server.use(bodyParser.json());
-server.listen(4000);
+
+server.listen(process.env.PORT || 4000);
 
 const employees = []; //=> [{fName: "Matt", lName: "Doe", email: "doe@gmail.com", role: "sde", eId: "12345" }]
 
