@@ -1,6 +1,7 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
-const cors = required("cors");
+const cors = require("cors");
 const server = express();
 
 server.use(bodyParser.json());
@@ -21,7 +22,9 @@ const employees = []; //=> [{fName: "Matt", lName: "Doe", email: "doe@gmail.com"
 //     res.status(404).send("error need valid name parameters");
 //   }
 // });
-
+server.get("/", (req, res) => {
+  res.send(process.env.fullName);
+});
 server.post("/employees", (req, res) => {
   //varification
   // if (req.body.name !== undefined && typeof req.body.name === "string") {
